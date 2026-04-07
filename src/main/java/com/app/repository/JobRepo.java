@@ -25,9 +25,8 @@ public class JobRepo {
     }
 
     // method to save a job post object into arrayList
-    public void addJob(JobPost job) {
+    public void saveJob(JobPost job) {
         jobs.add(job);
-        System.out.println(jobs);
     }
 
     public JobPost  getJob(int postId) {

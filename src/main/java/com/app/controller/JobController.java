@@ -26,4 +26,10 @@ public class JobController {
     public JobPost getJob(@PathVariable int postId) {
         return service.getJob(postId);
     }
+
+    @PostMapping("/jobPost")
+    public JobPost saveJob(@RequestBody JobPost jobPost) {
+        service.saveJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
 }

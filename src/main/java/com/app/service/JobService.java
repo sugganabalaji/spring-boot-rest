@@ -13,8 +13,8 @@ public class JobService {
     public JobRepo repository;
 
     // method to add a jobPost
-    public void addJob(JobPost jobPost) {
-        repository.addJob(jobPost);
+    public void saveJob(JobPost jobPost) {
+        repository.saveJob(jobPost);
     }
 
     //method to return all JobPosts
