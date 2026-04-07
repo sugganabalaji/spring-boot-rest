@@ -21,7 +21,6 @@ public class JobPost {
 	private int postId;
 	@Column(length = 50)
 	private String postProfile;
-	@Column(length = 100)
 	private String postDesc;
 	private Integer reqExperience;
 	private List<String> postTechStack;
