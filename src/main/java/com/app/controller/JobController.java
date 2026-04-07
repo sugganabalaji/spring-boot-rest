@@ -50,7 +50,7 @@ public class JobController {
         return service.loadData();
     }
 
-    @GetMapping("/jobPost/search/{keyword}")
+    @GetMapping("/jobPosts/search/{keyword}")
     public List<JobPost> searchJobs(@PathVariable String keyword) {
         return service.search(keyword);
     }
