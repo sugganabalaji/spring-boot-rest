@@ -49,4 +49,8 @@ public class JobJpaService {
         repository.saveAll(jobs);
         return "Data loaded successfully.";
     }
+
+    public List<JobPost> search(String keyword) {
+        return repository.findByPostProfileContainingIgnoreCaseOrPostDescContainingIgnoreCase(keyword, keyword);
+    }
 }
