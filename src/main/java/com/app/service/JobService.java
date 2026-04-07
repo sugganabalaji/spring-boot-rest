@@ -10,16 +10,19 @@ import java.util.List;
 @Service
 public class JobService {
     @Autowired
-    public JobRepo repo;
+    public JobRepo repository;
 
     // method to add a jobPost
     public void addJob(JobPost jobPost) {
-        repo.addJob(jobPost);
+        repository.addJob(jobPost);
     }
 
     //method to return all JobPosts
     public List<JobPost> getAllJobs() {
-        return repo.getAllJobs();
+        return repository.getAllJobs();
     }
 
+    public JobPost getJob(int postId) {
+        return repository.getJob(postId);
+    }
 }

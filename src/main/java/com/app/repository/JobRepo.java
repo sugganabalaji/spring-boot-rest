@@ -28,8 +28,12 @@ public class JobRepo {
     public void addJob(JobPost job) {
         jobs.add(job);
         System.out.println(jobs);
-
     }
 
-
+    public JobPost  getJob(int postId) {
+        return jobs.stream()
+                .filter(job -> job.getPostId() == postId)
+                .findFirst()
+                .orElse(null);
+    }
 }
