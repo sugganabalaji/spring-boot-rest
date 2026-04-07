@@ -1,5 +1,8 @@
 package com.app.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
+@Entity
 public class JobPost {
 
+	@Id
 	private int postId;
-	private String postProfile; 
+	@Column(length = 50)
+	private String postProfile;
+	@Column(length = 100)
 	private String postDesc;
 	private Integer reqExperience;
 	private List<String> postTechStack;

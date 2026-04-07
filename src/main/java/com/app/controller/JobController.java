@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import com.app.model.JobPost;
+import com.app.service.JobJpaService;
 import com.app.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,7 @@ import java.util.List;
 public class JobController {
 
     @Autowired
-    private JobService service;
+    private JobJpaService service;
 
     //@ResponseBody
     @GetMapping(path = "/jobPosts", produces = {"application/json", "application/xml"})
@@ -44,4 +45,8 @@ public class JobController {
         return service.deleteJob(postId);
     }
 
+    @GetMapping("/loadData")
+    public String loadData() {
+        return service.loadData();
+    }
 }
