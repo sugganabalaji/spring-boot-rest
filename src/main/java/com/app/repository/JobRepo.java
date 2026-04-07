@@ -35,4 +35,21 @@ public class JobRepo {
                 .findFirst()
                 .orElse(null);
     }
+
+    public void updateJob(JobPost jobPost) {
+        jobs.stream()
+                .filter(job -> job.getPostId() == jobPost.getPostId())
+                .findFirst()
+                .ifPresent(job -> {
+                    job.setPostProfile(jobPost.getPostProfile());
+                    job.setReqExperience(jobPost.getReqExperience());
+                    job.setPostDesc(jobPost.getPostDesc());
+                    job.setPostTechStack(jobPost.getPostTechStack());
+                });
+    }
+
+    public String deleteJob(int postId) {
+        jobs.removeIf(job -> job.getPostId() == postId);
+        return "PostId: " + postId + " deleted successfully.";
+    }
 }

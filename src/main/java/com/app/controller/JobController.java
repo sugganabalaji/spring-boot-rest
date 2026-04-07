@@ -16,8 +16,8 @@ public class JobController {
     @Autowired
     private JobService service;
 
-    @GetMapping("/jobPosts")
     //@ResponseBody
+    @GetMapping(path = "/jobPosts", produces = {"application/json", "application/xml"})
     public List<JobPost> getAllJobs() {
         return service.getAllJobs();
     }
@@ -27,9 +27,21 @@ public class JobController {
         return service.getJob(postId);
     }
 
-    @PostMapping("/jobPost")
+    @PostMapping(path = "/jobPost", consumes = "application/json")
     public JobPost saveJob(@RequestBody JobPost jobPost) {
         service.saveJob(jobPost);
         return service.getJob(jobPost.getPostId());
     }
+
+    @PutMapping(path = "/jobPost", consumes = "application/json")
+    public JobPost updateJob(@RequestBody JobPost jobPost) {
+        service.updateJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @DeleteMapping("/jobPost/{postId}")
+    public String deleteJob(@PathVariable int postId) {
+        return service.deleteJob(postId);
+    }
+
 }
